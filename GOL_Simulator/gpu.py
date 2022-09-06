@@ -33,4 +33,4 @@ class Simulator:
         return self
     @property
     def result(self):
-        return self.field.copy_to_host()
+        return self.field[1:-1,1:-1].copy_to_host()
