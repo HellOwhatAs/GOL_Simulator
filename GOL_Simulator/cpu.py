@@ -29,4 +29,4 @@ class Simulator:
         return self
     @property
     def result(self):
-        return self.field
+        return self.field[1:-1,1:-1]
