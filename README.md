@@ -2,7 +2,7 @@
 Simulator of GOL(Game of Life) with Python on both cpu and gpu(cuda)
 
 # Usage
-If [`numba.cuda`](https://github.com/numba/numba) is avaliable for you, use `from GOL_Simulator.gpu import Simulator` (or cpu if you like it).  
+If [`numba.cuda`]([https://github.com/numba/numba](https://numba.readthedocs.io/en/stable/cuda/index.html) is avaliable for you, use `from GOL_Simulator.gpu import Simulator` (or cpu if you like it).  
 Otherwise you can use `from GOL_Simulator.cpu import Simulator` only.  
 (all API are the same between `gpu` and `cpu`)
 
