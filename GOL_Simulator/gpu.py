@@ -31,6 +31,7 @@ class Simulator:
             self.field.copy_to_device(self.new_field)
             cuda.synchronize()
         return self
-    @property
-    def result(self):
-        return self.field[1:-1,1:-1].copy_to_host()
+    def __getitem__(self,x):
+        ret=self.field[1:-1,1:-1][x]
+        if hasattr(ret,"copy_to_host"):return ret.copy_to_host()
+        return ret

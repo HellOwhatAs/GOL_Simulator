@@ -1,5 +1,6 @@
 from numba import njit
 import numpy as np
+from typing import Union
 
 @njit
 def update_new(world,new_world):
@@ -19,7 +20,7 @@ def update_new(world,new_world):
 
 class Simulator:
     def __init__(self,init_state:np.ndarray):
-        self.field=np.zeros(tuple(i+2 for i in init_state.shape),dtype=np.bool8)
+        self.field:np.ndarray=np.zeros(tuple(i+2 for i in init_state.shape),dtype=np.bool8)
         self.field[1:-1,1:-1]=init_state
         self.new_field=np.empty_like(self.field)
     def run(self,rounds:int=1,tqdm=None):
@@ -27,6 +28,5 @@ class Simulator:
             update_new(self.field,self.new_field)
             self.field[:]=self.new_field
         return self
-    @property
-    def result(self):
-        return self.field[1:-1,1:-1]
+    def __getitem__(self,x)->Union[np.ndarray,np.bool_]:
+        return self.field[1:-1,1:-1][x]
