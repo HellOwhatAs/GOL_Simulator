@@ -9,5 +9,5 @@ Otherwise you can use `from GOL_Simulator.cpu import Simulator` only.
 # Examples
 run [cpu_example.py](https://github.com/HellOwhatAs/GOL_Simulator/blob/main/cpu_example.py) to get [cpu_result.png](https://github.com/HellOwhatAs/GOL_Simulator/blob/main/cpu_result.png) which is a randomly (with all cells 95% probability to be dead and 5% to be alive) initialized `1000x1000` state after `200` iterations.
 
-run [gpu_example.py](https://github.com/HellOwhatAs/GOL_Simulator/blob/main/cpu_example.py) to get [gpu_result.png](https://github.com/HellOwhatAs/GOL_Simulator/blob/main/cpu_result.png) which is the state in [cpu_result.png](https://github.com/HellOwhatAs/GOL_Simulator/blob/main/cpu_result.png) (actually it reads the state from this picture) after another `2000` iterations.
+run [gpu_example.py](https://github.com/HellOwhatAs/GOL_Simulator/blob/main/cpu_example.py) to get [gpu_result.png](https://github.com/HellOwhatAs/GOL_Simulator/blob/main/cpu_result.png) which is the state in [cpu_result.png](https://github.com/HellOwhatAs/GOL_Simulator/blob/main/gpu_result.png) (actually it reads the state from this picture) after another `2000` iterations.
 
