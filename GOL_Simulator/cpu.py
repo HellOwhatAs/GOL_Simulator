@@ -20,13 +20,16 @@ def update_new(world,new_world):
 
 class Simulator:
     def __init__(self,init_state:np.ndarray):
-        self.field:np.ndarray=np.zeros(tuple(i+2 for i in init_state.shape),dtype=np.bool8)
-        self.field[1:-1,1:-1]=init_state
-        self.new_field=np.empty_like(self.field)
+        self.__field:np.ndarray=np.zeros(tuple(i+2 for i in init_state.shape),dtype=np.bool8)
+        self.__field[1:-1,1:-1]=init_state
+        self.__new_field=(self.__field).copy()
     def run(self,rounds:int=1,tqdm=None):
         for _ in range(rounds) if tqdm is None else tqdm(range(rounds)):
-            update_new(self.field,self.new_field)
-            self.field[:]=self.new_field
+            update_new(self.__field,self.__new_field)
+            self.__field[:]=self.__new_field
         return self
     def __getitem__(self,x)->Union[np.ndarray,np.bool_]:
-        return self.field[1:-1,1:-1][x]
+        return self.__field[1:-1,1:-1][x]
+    def __setitem__(self,__s,__o):
+        self.__field[1:-1,1:-1][__s]=__o
+        self.__new_field[1:-1,1:-1][__s]=__o
