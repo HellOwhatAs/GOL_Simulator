@@ -6,4 +6,4 @@ s=Simulator(
     cv2.imread("cpu_result.png",0)
 ).run(2000,tqdm)
 
-cv2.imwrite("gpu_result.png",s.result.astype(np.uint8)*255)
+cv2.imwrite("gpu_result.png",s[:].astype(np.uint8)*255)
