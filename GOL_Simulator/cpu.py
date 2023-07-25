@@ -1,10 +1,10 @@
-from numba import njit
+from numba import njit, prange
 import numpy as np
 from typing import Union
 
-@njit
+@njit(parallel=True)
 def update_new(world,new_world):
-    for i in range(1,world.shape[0]-1):
+    for i in prange(1,world.shape[0]-1):
         for j in range(1,world.shape[1]-1):
             tmp=(world[i-1,j-1])+\
             (world[i-1,j])+\
